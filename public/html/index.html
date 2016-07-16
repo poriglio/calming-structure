@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">	
+	<head>
+		<meta charset="utf-8">
+		<title>MEAN Paula Boilerplate</title>
+
+		<!-- USE THE FOLLOWING FOR LOCAL DEVELOPMENT: -->
+		
+		<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
+		
+		<script src="/js/angular-min.js"></script>
+		<script src="/js/angular-route.min.js"></script>
+		<script src="/js/ui-bootstrap.min.js"></script>
+		
+	<!--  USE THE FOLLOWING FOR PRODUCTION: 
+		
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.3/ui-bootstrap.min.js"></script> 
+
+	-->
+
+		<link type="text/css" rel="stylesheet" href="/css/styles.css" media="screen">
+		<script src="/js/main.js"></script>
+		<script src="/js/factory.js"></script>
+
+	</head>
+	<body ng-controller="sampleController">
+		<h1>Welcome to Paula's MEAN Boilerplate!</h1>
+		<div>
+			{{sample}}
+		</div>
+	</body>
+</html>
