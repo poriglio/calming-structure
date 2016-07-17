@@ -1,2 +1,7 @@
 node_modules
 .git
+notes.txt
+/public/js/angular-min.js
+/public/js/angular-route.min.js
+/public/js/ui-bootstrap.min.js
+/public/css/bootstrap.min.css
