@@ -1,8 +1,8 @@
 var mongoose = require("mongoose")
 
 var giftIdeaSchema = mongoose.Schema({
-	userId      : {type:Schema.ObjectId,required:true},
-	personId    : {type:Schema.ObjectId},
+	userId      : {type:String,required:true},
+	personId    : {type:String},
 	idea        : {type:String,required:true},
 	store       : {type:String,trim:true},
 	url         : {type:String,trim:true},

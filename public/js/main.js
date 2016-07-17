@@ -1,85 +1,56 @@
 angular.module("calmingStructureApp",["ngRoute","ui.bootstrap"])
 
-angular.module("calmingStructureApp").controller("sampleController",["$scope","$http","sampleFactory",function($scope,$http,sampleFactory){
+angular.module("calmingStructureApp").config(["$routeProvider",function($routeProvider){
 
-	$scope.sample = sampleFactory.sampleFunction()
+	$routeProvider.when("/",{
+		templateUrl : "/html/home/home.html",
+		controller  : "mainController"
+	})
+	.when("/home",{
+		templateUrl : "/html/home/home.html",
+		controller  : "mainController"
+	})
+	.when("/user",{
+		templateUrl : "/html/user/index.html",
+		controller  : "userController"
+	})
+	.when("/user/signup",{
+		templateUrl : "/html/user/createaccount.html",
+		controller  : "userController"
+	})
+	.when("/user/forgotpassword",{
+		templateUrl : "/html/user/forgotpassword.html",
+		controller  : "userController"
+	})
+	.when("/savingsgoals",{
+		templateUrl : "/html/savingsgoals/index.html",
+		controller  : "savingsGoalsController"
+	})
+	.when("/giftideas",{
+		templateUrl : "/html/giftideas/index.html",
+		controller  : "giftIdeasController"
+	})
+}])
+
+angular.module("calmingStructureApp").controller("mainController",["$scope","$http","$location","calmingStructureFactory",function($scope,$http,$location,calmingStructureFactory){
+
+	$scope.message = "This is the main controller."	
+}])
+
+angular.module("calmingStructureApp").controller("userController",["$scope","$http","$location","calmingStructureFactory",function($scope,$http,$location,calmingStructureFactory){
+
+	$scope.message = "This is the user controller."
 
 }])
 
-angular.module("storyApp").config(["$routeProvider",function($routeProvider){
+angular.module("calmingStructureApp").controller("savingsGoalsController",["$scope","$http","$location","calmingStructureFactory",function($scope,$http,$location,calmingStructureFactory){
 
-	// Example route from Just Write for my reference:
-	// $routeProvider.when("/",{
-	// 	templateUrl : "/html/public/intro.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/signup",{
-	// 	templateUrl : "/html/public/newuser.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/loginerror",{
-	// 	templateUrl : "/html/confirmation/loginerror.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/confirm/comment",{
-	// 	templateUrl : "/html/confirmation/comment.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/confirm/registration",{
-	// 	templateUrl : "/html/confirmation/registration.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/confirm/submission",{
-	// 	templateUrl : "/html/confirmation/submission.html",
-	// 	controller  : "mainController"
-	// })
-	// .when("/submit",{
-	// 	templateUrl : "/html/private/submissionform.html",
-	// 	controller  : "mainController",
-	// })
-	// .when("/profile/:username",{
-	// 	templateUrl : "/html/private/profile.html",
-	// 	controller  : "userController"
-	// })
-	// .when("/profile",{
-	// 	templateUrl : "/html/private/profile.html",
-	// 	controller  : "userController"
-	// })
-	// .when("/browse",{
-	// 	templateUrl : "/html/private/browse.html",
-	// 	controller  : "browseController"
-	// })
-	// .when("/browse/users",{
-	// 	templateUrl : "/html/private/browseusers.html",
-	// 	controller : "browseController"
-	// })
-	// .when("/browse/:type",{
-	// 	templateUrl : "/html/private/browsesubmissions.html",
-	// 	controller : "browseController"
-	// })
-	// .when("/stories/:submission",{
-	// 	templateUrl : "/html/private/submission.html",
-	// 	controller  : "submissionController"
-	// })
-	// .when("/essays/:submission",{
-	// 	templateUrl : "/html/private/submission.html",
-	// 	controller  : "submissionController"
-	// })
-	// .when("/poems/:submission",{
-	// 	templateUrl : "/html/private/submission.html",
-	// 	controller  : "submissionController"
-	// })
-	// .when("/account/profile",{
-	// 	templateUrl : "/html/private/myaccount.html",
-	// 	controller : "accountController"
-	// })
-	// .when("/account/submissions",{
-	// 	templateUrl : "/html/private/editsubmissions.html",
-	// 	controller  : "accountController"
-	// })
-	// .when("/account/:type/:id",{
-	// 	templateUrl : "/html/private/editsubmission.html",
-	// 	controller  : "accountController"
-	// })
+	$scope.message = "This is the savings goals controller."
+
+}])
+
+angular.module("calmingStructureApp").controller("giftIdeasController",["$scope","$http","$location","calmingStructureFactory",function($scope,$http,$location,calmingStructureFactory){
+
+	$scope.message = "This is the gift ideas controller."
 
 }])

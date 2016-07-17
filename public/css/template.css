@@ -1,0 +1,47 @@
+body{
+	background-color: hsl(0, 0%, 87%);
+}
+
+h1,h2,h3{
+	font-weight:200;
+}
+
+.header{
+	list-style-type: none;
+}
+
+.header-forms{
+	margin-top:10px;
+}
+
+.sign-in-form{
+
+}
+
+.sign-in-form input[type="text"],
+.sign-in-form input[type="password"]{
+	width:250px;
+	max-width:100%;
+}
+
+.sign-in-form ul li{
+	display:inline-block;
+}
+
+.sign-out-form{
+
+}
+
+.page-content{
+	
+}
+
+/*HELPER CLASSES*/
+
+.nopadding{
+	padding:0!important;
+}
+
+.unstyled-list{
+	list-syle-type:none;
+}

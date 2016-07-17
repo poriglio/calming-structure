@@ -1,8 +1,8 @@
-var Story = require("../models/storymodel.js")
+var SavingsGoal = require("../models/savingsgoalmodel.js")
 var User = require("../models/usermodel.js")
 
 
-var createStory = function(request,response){
+var createSavingsGoal = function(request,response){
 
 	var d = new Date();
 	var n = d.getTime();
@@ -18,7 +18,7 @@ var createStory = function(request,response){
 		title = request.body.title
 	}
 	
-	var newStory = new Story({
+	var newSavingsGoal = new SavingsGoal({
 		username        : request.user.username,
 		title           : title,
 		description     : request.body.description,
@@ -30,7 +30,7 @@ var createStory = function(request,response){
 		numComments     : +0,
 	})
 
-	newStory.save(function(error){
+	newSavingsGoal.save(function(error){
 		if(!error){
 			User.update({username: username},{$inc:{numSubmissions : 1}},function(error,docs){
 				if(error){
@@ -51,34 +51,34 @@ var createStory = function(request,response){
 
 }
 
-var findStory = function(request,response){
+var findSavingsGoal = function(request,response){
 	var id = request.params.submission
 	Story.findOne({_id : id},function(error,doc){
 		response.send(doc)
 	})
 }
 
-var findStories = function(request,response){
+var findSavingsGoals = function(request,response){
 	if(request.params.username!=="returnAll"){
 		var username = request.params.username
-		Story.find({username: username},function(error,docs){
+		SavingsGoal.find({username: username},function(error,docs){
 			response.send(docs)
 		})
 	}
 	else if(request.params.username==="returnAll"){
-		Story.find({},function(error,docs){
+		SavingsGoal.find({},function(error,docs){
 			response.send(docs)
 		})
 	}
 }
 
-var editStory = function(request,response){
-	Story.update({_id: request.body[0]._id},{$set:{title:request.body[0].title,content:request.body[0].content.split("[p]"),description:request.body[0].description}},function(error){
+var editSavingsGoal = function(request,response){
+	SavingsGoal.update({_id: request.body[0]._id},{$set:{title:request.body[0].title,content:request.body[0].content.split("[p]"),description:request.body[0].description}},function(error){
 	})
 }
 
-var deleteStory = function(request,response){
-	Story.remove({_id: request.body._id},function(error,docs){
+var deleteSavingsGoal = function(request,response){
+	SavingsGoal.remove({_id: request.body._id},function(error,docs){
 		if(!error){
 			User.update({username: request.body.username},{$inc:{numStories : -1}},function(error,docs){
 				if(error){
@@ -95,9 +95,9 @@ var deleteStory = function(request,response){
 }
 
 module.exports = {
-	findStory    : findStory,
-	createStory  : createStory,
-	findStories  : findStories,
-	editStory    : editStory,
-	deleteStory  : deleteStory,
+	findSavingsGoal   : findSavingsGoal,
+	createSavingsGoal : createSavingsGoal,
+	findSavingsGoals  : findSavingsGoals,
+	editSavingsGoal   : editSavingsGoal,
+	deleteSavingsGoal : deleteSavingsGoal,
 }

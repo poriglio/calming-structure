@@ -1,4 +1,4 @@
-angular.module("calmingStructureApp").factory("sampleFactory",function(){
+angular.module("calmingStructureApp").factory("calmingStructureFactory",function(){
 
 	// Code from Just Write for my reference:
 	// var getStories = function($http,$scope,user){

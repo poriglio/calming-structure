@@ -2,7 +2,7 @@
 <html ng-app="calmingStructureApp">	
 	<head>
 		<meta charset="utf-8">
-		<title>MEAN Paula Boilerplate</title>
+		<title>Calming Structure</title>
 
 		<!-- USE THE FOLLOWING FOR LOCAL DEVELOPMENT: -->
 		
@@ -16,23 +16,63 @@
 		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.3/ui-bootstrap.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script> 
 
 	-->
 
-		<link type="text/css" rel="stylesheet" href="/css/styles.css" media="screen">
+		<link type="text/css" rel="stylesheet" href="/css/template.css" media="screen">
 		<script src="/js/main.js"></script>
 		<script src="/js/factory.js"></script>
 
 	</head>
-	<body ng-controller="sampleController">
-		<h1>Welcome to Paula's MEAN Boilerplate!</h1>
-		<div>
-			{{sample}}
-		</div>
-		<div ng-view>
+	<body>
+		<div class="container">
+			<div class="header row">
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<h1>Calming Structure</h1>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 header-forms">
+					<!-- Hide when logged in: -->
+					<div ng-hide="" class="sign-in-form">
+						<div class="col-xs-12 nopadding">	
+							<div class="pull-right">
+								<form class="form-inline" method="POST" action="/auth/signin">
+									<div class="form-group">
+										<input class="form-control" type="text" placeholder="Username" name="username">
+									</div>
+									<div class="form-group">
+										<input class="form-control" type="password" placeholder="Password" name="password">
+									</div>
+									<input class="btn btn-primary" type="submit" value="Sign In">
+								</form>
+							</div>
+						</div>
+						<div class="col-xs-12 nopadding">
+							<div class="pull-right">
+								<ul class="unstyled-list">
+									<li><a class="btn link" href="/#/user/forgotpassword">Forgot Password</a></li>
+									<li><a class="btn link" href="/#/user/signup">Sign Up</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- Hide when logged out: -->
+					<div ng-show="" class="sign-out-form pull-right">
+						<form method="POST" action="/auth/signout">
+							<input class="btn btn-primary" type="submit" value="Sign Out">
+						</form>
+					</div>
+				</div>
+			</div>
+			<ul class="row nav nav-pills">
+				<li><a href="/#/home">Home</a></li>
+				<li><a href="/#/giftideas">Gift Ideas</a></li>
+				<li><a href="/#/savingsgoals">Savings Goals</a></li>
+			</ul>
+			<div class="row page-content" ng-view>
+			</div>
 		</div>
 	</body>
 </html>

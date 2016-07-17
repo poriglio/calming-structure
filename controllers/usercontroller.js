@@ -2,36 +2,26 @@ var User = require("../models/usermodel.js")
 
 var createUser = function(request,response){
 
+	console.log(request)
+
 	var d = new Date();
 	var n = d.getTime();
 
 	var newUser = new User({
-		username        : request.body.username,
-		usernameLower   : request.body.username.toLowerCase(),
-		password        : request.body.password,
-		email           : request.body.email,
-		age             : +request.body.age,
-		birthday        : request.body.birthday,
-		bio             : request.body.bio,
-		favBooks        : request.body.favBooks.split(", "),
-		favWriters      : request.body.favWriters.split(", "),
-		numSubmissions  : 0,
-		numPoems        : 0,
-		numStories      : 0,
-		numEssays       : 0,
-		numComments     : 0,
-		badges          : [],
-		admin           : false,
-		private         : false,
-		dateJoined      : n,
+		username          : request.body.username,
+		firstName         : request.body.firstName,
+		lastName          : request.body.lastName,
+		email             : request.body.email,
+		password          : request.body.password,
+		dateJoined        : +n,
 	})
 
 	newUser.save(function(error){
 		if(!error){
-			response.redirect("/#/confirm/registration")
+			console.log("Successfully saved new user.")
 		}
 		else{
-			console.log("Error!",error)
+			console.log("Error while trying to save new user. ",error)
 		}
 	})
 }
